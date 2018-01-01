@@ -1,8 +1,8 @@
 '''One-line description of package
 
 '''
+import os
 from setuptools import setup
-from os import path
 
 try:
     import pypandoc
@@ -15,9 +15,10 @@ except:
     with open('README.md') as f:
         long_description = f.read()
 
-from blank_python_project import __version__
+with open(os.path.join(os.path.dirname(__file__), 'VERSION')) as version_file:
+    version = version_file.read().strip()
 
-with open("requirements.txt") as f:
+with open(os.path.join(os.path.dirname(__file__), "requirements.txt"), "r") as f:
     requirements = f.read().splitlines()
 
 WHITESPACE_SEP_KEYWORDS = ''
@@ -34,7 +35,7 @@ CLASSIFIERS = [
 
 
 setup(name='blank_python_project',
-      version=__version__,
+      version=version,
       description=__doc__,
       long_description=long_description,
       url="https://github.com/kinverarity1/blank_python_project",
