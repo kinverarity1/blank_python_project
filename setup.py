@@ -15,7 +15,7 @@ except:
     with open('README.md') as f:
         long_description = f.read()
 
-from blank_python_project import __version__
+__version__ = '0.1'
 
 with open("requirements.txt") as f:
     requirements = f.read().splitlines()
